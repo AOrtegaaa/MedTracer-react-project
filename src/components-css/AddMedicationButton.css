@@ -1,0 +1,18 @@
+.addMedicationButton {
+  background-color: rgb(133, 133, 241);
+  border-style: none;
+  border-radius: 200px;
+  padding: 8px 50px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.addMedicationButton:hover {
+  background-color: rgb(162, 162, 237);
+  color: black;
+}

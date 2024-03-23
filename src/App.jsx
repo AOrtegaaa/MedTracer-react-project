@@ -1,33 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import Header from './components/Header';
+import AddMedicationButton from './components/AddMedicationButton';
+import MedicationCard from './components/MedicationCard';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const medications = [
+    { id: 1, name: 'Humalog(Insulin Lispro)', dosage: '20 units', dosageForm: 'Injection', frequency: 'Daily, 2 Times', time: '8:00 a.m. and 4:00 p.m.' },
+    { id: 2, name: 'Clobazam', dosage: '10 mg', dosageForm: 'Tablet', frequency: 'Every 2 Days', time: '10:00 a.m.' },
+    { id: 3, name: 'Quetiapine', dosage: '75 mg', dosageForm: 'Tablet', frequency: 'Daily, 3 times', time: '8:00 a.m., 2:00 p.m., and 8:00 p.m.'},
+    { id: 4, name: 'Ibuprofen', dosage: '400 mg', dosageForm: 'Tablet', frequency: 'Every 4 to 6 hours as needed', time: '11:00 a.m. and 4:00 p.m.'}
+  ];
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header />
+      <AddMedicationButton />
+      {medications.map((med) => (
+        <MedicationCard
+          key={med.id}
+          medication={med.name}
+          dosage={med.dosage}
+          dosageForm={med.dosageForm}
+          frequency={med.frequency}
+          time={med.time}
+        />
+      ))}
+      <Footer />
     </>
   )
 }
