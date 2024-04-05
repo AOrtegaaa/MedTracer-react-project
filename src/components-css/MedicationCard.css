@@ -1,0 +1,31 @@
+.medicationCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: white;
+}
+
+.medicationDetails {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.medicationName {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.medicationDosage {
+  font-size: 14px;
+}
+
+.medicationFrequency {
+  font-size: 12px;
+  text-align: center;
+}
