@@ -14,3 +14,16 @@
     text-align: center;
   }
 }
+
+.react-calendar {
+  margin: 0 auto;
+}
+
+abbr[title] {
+  text-decoration: none !important;
+}
+
+div.react-calendar {
+  width: 300px;
+  height: 280px;
+}
