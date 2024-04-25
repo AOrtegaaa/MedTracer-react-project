@@ -35,14 +35,20 @@
   transition: opacity 0.3s ease;
   cursor: pointer;
   padding-top: 3px;
-}
-
-.nav-button img:hover,
-.nav-button img:focus {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 .footerButtonName {
   font-weight: bold;
   font-size: 12px;
+  opacity: 0.6;
 }
+
+.nav-button.active img {
+  opacity: 1;
+}
+
+.nav-button.active .footerButtonName {
+  opacity: 1;
+}
+

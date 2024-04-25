@@ -1,33 +1,44 @@
-import '../App.css';
 import Header from '../components/Header';
 import AddMedicationButton from '../components/AddMedicationButton';
 import MedicationCard from '../components/MedicationCard';
+import PropTypes from 'prop-types';
 
-function MedsPage() {
-
-  const medications = [
-    { id: 1, name: 'Humalog(Insulin Lispro)', dosage: '20 units', dosageForm: 'Injection', frequency: 'Daily, 2 Times', time: '8:00 a.m. and 4:00 p.m.' },
-    { id: 2, name: 'Clobazam', dosage: '10 mg', dosageForm: 'Tablet', frequency: 'Every 2 Days', time: '10:00 a.m.' },
-    { id: 3, name: 'Quetiapine', dosage: '75 mg', dosageForm: 'Tablet', frequency: 'Daily, 3 times', time: '8:00 a.m., 2:00 p.m., and 8:00 p.m.'},
-    { id: 4, name: 'Ibuprofen', dosage: '400 mg', dosageForm: 'Tablet', frequency: 'Every 4 to 6 hours as needed', time: '11:00 a.m. and 4:00 p.m.'}
-  ];
-
+function MedsPage({ medications, removeMedication }) {
   return (
     <>
       <Header title='My Medications'/>
       <AddMedicationButton />
-      {medications.map((med) => (
+      {medications.map(medication => (
         <MedicationCard
-          key={med.id}
-          medication={med.name}
-          dosage={med.dosage}
-          dosageForm={med.dosageForm}
-          frequency={med.frequency}
-          time={med.time}
-        />
+        key={medication.id}
+        id={medication.id}
+        name={medication.name}
+        dosage={medication.dosage}
+        unit={medication.unit}
+        dosageForm={medication.dosageForm}
+        frequency={medication.frequency}
+        times={medication.times}
+        removeMedication={removeMedication} />
       ))}
     </>
-  )
+  );
 }
 
-export default MedsPage
+MedsPage.propTypes = {
+  medications: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    name: PropTypes.string.isRequired,
+    dosage: PropTypes.string.isRequired,
+    unit: PropTypes.string.isRequired,
+    dosageForm: PropTypes.string.isRequired,
+    frequency: PropTypes.string.isRequired,
+    times: PropTypes.arrayOf(PropTypes.shape({
+      hour: PropTypes.string.isRequired,
+      minute: PropTypes.string.isRequired,
+      meridian: PropTypes.string.isRequired
+    })).isRequired
+  })).isRequired,
+  removeMedication: PropTypes.func.isRequired
+};
+
+export default MedsPage;

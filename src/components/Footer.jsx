@@ -1,34 +1,36 @@
 import '../components-css/Footer.css';
+import { NavLink } from 'react-router-dom';
 import homeButton from '../assets/homeLogo.png';
 import medicationLogButton from '../assets/medicationLogLogo.png';
 import medicationButton from '../assets/pillLogo.png';
-import PropTypes from 'prop-types';
 
-function Footer({ onHomeClick, onMedsClick, onMedsLogClick }) {
+function Footer() {
+  const getClassName = ({ isActive }) => isActive ? "nav-button active" : "nav-button";
+
   return (
     <footer className="footer">
       <nav className="footer-nav">
-        <button className="nav-button" onClick={onHomeClick}>
+      <NavLink to="/" className={getClassName}>
+        <button className="nav-button">
           <img src={homeButton} alt="Home" />
-          <div className="footerButtonName">Home</div>
+          <div className='footerButtonName'>Home</div>
         </button>
-        <button className="nav-button" onClick={onMedsClick}>
+      </NavLink>
+      <NavLink to="/meds" className={getClassName}>
+        <button className="nav-button">
           <img src={medicationButton} alt="Medication" />
-          <div className="footerButtonName">Meds</div>
+          <div className='footerButtonName'>Meds</div>
         </button>
-        <button className="nav-button" onClick={onMedsLogClick}>
+      </NavLink>
+      <NavLink to="/meds-log" className={getClassName}>
+        <button className="nav-button">
           <img src={medicationLogButton} alt="Medication Log" />
-          <div className="footerButtonName">Meds Log</div>
+          <div className='footerButtonName'>Meds Log</div>
         </button>
+      </NavLink>
       </nav>
     </footer>
   );
 }
-
-Footer.propTypes = {
-  onHomeClick: PropTypes.func.isRequired,
-  onMedsClick: PropTypes.func.isRequired,
-  onMedsLogClick: PropTypes.func.isRequired,
-};
 
 export default Footer;
