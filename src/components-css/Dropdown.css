@@ -1,0 +1,46 @@
+#dropdownContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.labelBox {
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.selectBox {
+  width: 225px;
+  height: 25px;
+  cursor: pointer;
+}
+
+select {
+  font-size: 15px;
+}
+
+.timeDropdownTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.timeDropdownContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 225px;
+  margin: 0 auto;
+}
+
+.timeSelectBox {
+  width: 70px;
+  cursor: pointer;
+}
+
